@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MovableEntity))]
-public class PlayerController : MonoBehaviour
+public class InputController : MonoBehaviour
 {
     public float InitialDirection = 1;
     [ReadOnly("Current Direction")]
