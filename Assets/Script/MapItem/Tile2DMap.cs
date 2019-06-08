@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Tilemaps;
 
-public class Tile2DMap : MonoBehaviour
+public class Tile2DMap : MapItemType
 {
     public Tilemap debugTilemap;
     public TileBase debugTile;
@@ -30,5 +30,10 @@ public class Tile2DMap : MonoBehaviour
         tilePos += new Vector3Int(Mathf.FloorToInt(normal.x), Mathf.FloorToInt(normal.y), 0);
         var tile = tilemap.GetTile<TypedTile>(tilePos);
         return tile == null ? MapItemType.TypeEnum.Null : tile.Type;
+    }
+
+    public override TypeEnum GetTypeFromContact(ContactPoint2D contact)
+    {
+        return GetTileType(contact);
     }
 }
