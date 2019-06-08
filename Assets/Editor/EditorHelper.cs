@@ -9,6 +9,7 @@ using System.Reflection;
 
 namespace Assets.Editor
 {
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(MonoBehaviour), true)]
     class EditorHelper: UnityEditor.Editor
     {
