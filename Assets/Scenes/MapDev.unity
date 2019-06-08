@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -678,6 +678,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
+  NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  BurnTime: 2
+  GrowTime: 5
 --- !u!114 &313603330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,6 +1087,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
+  NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  BurnTime: 2
+  GrowTime: 5
 --- !u!114 &401911255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3191,6 +3199,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
+  NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  BurnTime: 2
+  GrowTime: 5
 --- !u!1 &1138246262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3569,6 +3581,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
+  NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  BurnTime: 2
+  GrowTime: 5
 --- !u!114 &1372886016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3764,6 +3780,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
+  NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  BurnTime: 2
+  GrowTime: 5
 --- !u!114 &1458092518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5073,6 +5093,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
+  NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  BurnTime: 2
+  GrowTime: 5
 --- !u!114 &1763801048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5568,7 +5592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896664035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 1.44, z: 0}
+  m_LocalPosition: {x: -4.85, y: 1.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1510181104}
