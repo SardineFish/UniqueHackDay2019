@@ -7,13 +7,23 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Vector2 Velocity = new Vector2(1, 0);
-    public bool OnGround = false;
     private Collider2D onGroundCollider = null;
     [Header("Idle")]
     public float IdleXSpeed = 2;
     public float IdleGravity = 3;
     public float IdleJumpYSpeed = 4;
     private event Action<Collision2D> CollisionEnterEvent;
+    private IEnumerator currentState = null;
+    public string StateName = "Null";
+    public void ChangeState(IEnumerator state)
+    {
+        if(currentState != null)
+        {
+            StopCoroutine(currentState);
+        }
+        StartCoroutine(state);
+        currentState = state;
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         CollisionEnterEvent?.Invoke(collision);
@@ -42,17 +52,24 @@ public class PlayerController : MonoBehaviour
 
         CollisionEnterEvent += (Collision2D collision) =>
         {
+
+        };
+        CollisionStayEvent += (Collision2D collision) =>
+        {
             var mapItemType = collision.collider.GetComponent<MapItemType>();
             if(mapItemType != null)
             {
                 bool reflectX = false;
                 foreach(var contact in collision.contacts)
                 {
-                    var type = mapItemType.GetTypeFromContact(contact);
-                    if(type == MapItemType.TypeEnum.StoneWall || type == MapItemType.TypeEnum.MapBorder)
+                    if(Mathf.Sign(contact.normal.x) * Mathf.Sign(Velocity.x) == -1)
                     {
-                        reflectX = true;
-                        break;
+                        var type = mapItemType.GetTypeFromContact(contact);
+                        if(type == MapItemType.TypeEnum.StoneWall || type == MapItemType.TypeEnum.MapBorder)
+                        {
+                            reflectX = true;
+                            break;
+                        }
                     }
                 }
                 if(reflectX)
@@ -60,62 +77,71 @@ public class PlayerController : MonoBehaviour
                     Velocity.x = -Velocity.x;
                 }
             }
-
-        };
-        CollisionStayEvent += (Collision2D collision) =>
-        {
             foreach(var contact in collision.contacts)
             {
                 Debug.DrawLine(contact.point, contact.point + contact.normal, Color.red);
             }
-            if(!OnGround)
+            if(StateName == "Air")
             {
                 foreach(var contact in collision.contacts)
                 {
-                    if (Mathf.Abs(contact.point.y - FootY) < 0.01)
+                    if (FootY - contact.point.y >= 0f && Mathf.Approximately(contact.normal.x, 0))
                     {
-                        OnGround = true;
+                        ChangeState(Ground());
                         onGroundCollider = contact.collider;
                     }
                 }
             }
+            else if(StateName == "Ground")
+            {
+                foreach(var contact in collision.contacts)
+                {
+                    if (FootY - contact.point.y >= 0f && Mathf.Approximately(contact.normal.y, 0))
+                    {
+                        rigidbody.position += Vector2.up * (FootY - contact.point.y + 0.01f);
+                    }
+                }
+
+            }
         };
         CollisionExitEvent += (Collision2D collision) =>
         {
-            if(OnGround && collision.collider == onGroundCollider)
+            if(StateName == "Ground" && collision.collider == onGroundCollider)
             {
-                OnGround = false;
                 onGroundCollider = null;
+                ChangeState(Air());
             }
         };
-        var idleState = Idle();
-        StartCoroutine(idleState);
+        ChangeState(Air());
         while(true)
         {
             rigidbody.velocity = Velocity;
             yield return new WaitForFixedUpdate();
         }
     }
-    public IEnumerator Idle()
+    public IEnumerator Ground()
     {
+        StateName = "Ground";
         while(true)
         {
-            if(OnGround)
+            if(Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space))
             {
-                if(Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space))
-                {
-                    Velocity.y = IdleJumpYSpeed;
-                }
-                else
-                {
-                    Velocity.y = 0;
-                }
+                Velocity.y = IdleJumpYSpeed;
             }
             else
             {
-                Velocity.y -= IdleGravity * Time.fixedDeltaTime;
+                Velocity.y = 0;
             }
             Velocity.x = Mathf.Sign(Velocity.x) * IdleXSpeed;
+            yield return new WaitForFixedUpdate();
+        }
+    }
+    public IEnumerator Air()
+    {
+        StateName = "Air";
+        while(true)
+        {
+            Velocity.y -= IdleGravity * Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
     }
