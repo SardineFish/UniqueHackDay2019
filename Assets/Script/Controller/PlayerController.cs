@@ -79,6 +79,24 @@ public class PlayerController : MonoBehaviour
     {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
 
+        CollisionEnterEvent += (Collision2D collision) =>
+        {
+            if(StateName == "Air")
+            {
+                foreach(var contact in collision.contacts)
+                {
+                    if(contact.normal == new Vector2(0, -1))
+                    {
+                        if(JumpState != null)
+                        {
+                            StopCoroutine(JumpState);
+                            JumpState = null;
+                        }
+                        Velocity.y = 0;
+                    }
+                }
+            }
+        };
         CollisionStayEvent += (Collision2D collision) =>
         {
             collision.collider.GetComponent<MapItem>()?.OnPlayerTouch();
@@ -176,7 +194,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach(var contact in collision.contacts)
             {
-                if(Mathf.Sign(contact.normal.x) * XDirection == -1 && contact.point.y - FootY > 0.01)
+                if(Mathf.Sign(contact.normal.x) * XDirection == -1 && contact.point.y - FootY > 0.01 && Mathf.Approximately(contact.normal.y, 0))
                 {
                     var type = mapItemType.GetTypeFromContact(contact);
                     if(type == MapItemType.TypeEnum.StoneWall || type == MapItemType.TypeEnum.MapBorder)
@@ -303,8 +321,9 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(grassProgress);
         yield return grassProgress;
 
+        float xDir = Mathf.Sign((finalPos - rigidbody.position).x);
         rigidbody.position = finalPos;
-        Velocity.x = XDirection * outGrassVelocity.x;
+        Velocity.x = xDir * outGrassVelocity.x;
         Velocity.y = outGrassVelocity.y;
         ChangeState(AirState());
         
