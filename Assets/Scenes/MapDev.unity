@@ -5633,9 +5633,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: {x: 1, y: 0}
-  IdleXSpeed: 6
-  IdleGravity: 14
-  IdleJumpYSpeed: 10
+  XMaxSpeed: 7.65
+  XAcc: 7.26
+  BaseGravity: 20
+  JumpTMin: 0.1
+  JumpTMax: 0.3
+  JumpSpeed: 10
+  JumpHoldAcc: 10.85
+  JumpUpGravityModulus: 1
+  JumpDownGravityModulus: 2
   StateName: Null
 --- !u!1 &1966984897
 GameObject:
