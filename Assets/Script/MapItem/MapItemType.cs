@@ -11,6 +11,7 @@ public abstract class MapItemType : MonoBehaviour
         MapBorder, //地图边缘
         GrassWall, //草墙
         DirtBlock,
+        TeleportBlock,
     }
     public abstract TypeEnum GetTypeFromContact(ContactPoint2D contact);
 }
