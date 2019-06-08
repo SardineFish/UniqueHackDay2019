@@ -271,6 +271,7 @@ public class PlayerController : MonoBehaviour
             StopCoroutine(JumpState);
             JumpState = null;
         }
+        animator.Play(addDirectionSuffix("StickOnWall"));
         Velocity.x = 0;
         while(true)
         {
@@ -293,13 +294,19 @@ public class PlayerController : MonoBehaviour
     }
     public IEnumerator AirState()
     {
+        if(StateName == "StickOnWall")
+        {
+            animator.Play(addDirectionSuffix("WallStartJump"));
+        }
         StateName = "Air";
         while(true)
         {
             yield return new WaitForFixedUpdate();
             if(Velocity.y > 0)
             {
-                animator.Play(addDirectionSuffix("JumpUp"));
+                if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != addDirectionSuffix("WallStartJump")) {
+                    animator.Play(addDirectionSuffix("JumpUp"));
+                }
             }
             else
             {
@@ -323,6 +330,7 @@ public class PlayerController : MonoBehaviour
         yield return grassProgress;
 
         float xDir = Mathf.Sign((finalPos - rigidbody.position).x);
+        XDirection = (int)xDir;
         rigidbody.position = finalPos;
         Velocity.x = xDir * outGrassVelocity.x;
         Velocity.y = outGrassVelocity.y;
