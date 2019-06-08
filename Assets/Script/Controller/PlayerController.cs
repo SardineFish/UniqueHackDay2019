@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
         };
         CollisionStayEvent += (Collision2D collision) =>
         {
+            collision.collider.GetComponent<MapItem>()?.OnPlayerTouch();
             var mapItemType = collision.collider.GetComponent<MapItemType>();
             if(mapItemType != null)
             {
