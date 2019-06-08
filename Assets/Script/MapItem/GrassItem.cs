@@ -47,19 +47,19 @@ public class GrassItem : MapItem
             var tile = searched[i];
             var pos = TileMap.Instance.WorldToGrid(tile.transform.position);
             var next = TileMap.Instance.GetTile(pos + Vector2Int.up);
-            if (next != null && !searched.Contains(next))
+            if (next != null && !searched.Contains(next) && next.GetComponent<GrassItem>())
                 searched.Add(next);
 
             next = TileMap.Instance.GetTile(pos + Vector2Int.left);
-            if (next != null && !searched.Contains(next))
+            if (next != null && !searched.Contains(next) && next.GetComponent<GrassItem>())
                 searched.Add(next);
 
             next = TileMap.Instance.GetTile(pos + Vector2Int.down);
-            if (next != null && !searched.Contains(next))
+            if (next != null && !searched.Contains(next) && next.GetComponent<GrassItem>())
                 searched.Add(next);
 
             next = TileMap.Instance.GetTile(pos + Vector2Int.right);
-            if (next != null && !searched.Contains(next))
+            if (next != null && !searched.Contains(next) && next.GetComponent<GrassItem>())
                 searched.Add(next);
         }
         return searched[searched.Count - 1];
@@ -72,28 +72,28 @@ public class GrassItem : MapItem
             var tile = searched[i];
             var pos = TileMap.Instance.WorldToGrid(tile.transform.position);
             var next = TileMap.Instance.GetTile(pos + Vector2Int.up);
-            if (next != null && !searched.Contains(next))
+            if (next != null && !searched.Contains(next) && next.GetComponent<GrassItem>())
             {
                 searched.Add(next);
                 yield return next;
             }
 
             next = TileMap.Instance.GetTile(pos + Vector2Int.left);
-            if (next != null && !searched.Contains(next))
+            if (next != null && !searched.Contains(next) && next.GetComponent<GrassItem>())
             {
                 searched.Add(next);
                 yield return next;
             }
 
             next = TileMap.Instance.GetTile(pos + Vector2Int.down);
-            if (next != null && !searched.Contains(next))
+            if (next != null && !searched.Contains(next) && next.GetComponent<GrassItem>())
             {
                 searched.Add(next);
                 yield return next;
             }
 
             next = TileMap.Instance.GetTile(pos + Vector2Int.right);
-            if (next != null && !searched.Contains(next))
+            if (next != null && !searched.Contains(next) && next.GetComponent<GrassItem>())
             {
                 searched.Add(next);
                 yield return next;
