@@ -41,12 +41,15 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 5f3536d4a16ce5344af88d8cf0c6c863, type: 3}
+    - {fileID: 102900000, guid: ac83437dcf9111c48b155174df7e5b39, type: 3}
+    - {fileID: 102900000, guid: 699814ca28aa8c84e9cc31469891e169, type: 3}
     - {fileID: 102900000, guid: c4887ce3210bf634399f0168118161eb, type: 3}
-    totalSpriteSurfaceArea: 8664
+    - {fileID: 102900000, guid: e03473eebfafb5144839c40ea28faa88, type: 3}
+    totalSpriteSurfaceArea: 24924
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 75a09011478c5eb4eaad2a7e8400cfed, type: 3}
   - {fileID: 21300000, guid: b030de72966784d4bb6b6d8b8b4d4811, type: 3}
   - {fileID: 21300000, guid: 58f7eb340a455ec41995c0e3a82e7568, type: 3}
   - {fileID: 21300000, guid: aa0254d4c58da7e489c278fb796dd3f5, type: 3}
@@ -56,10 +59,19 @@ SpriteAtlas:
   - {fileID: 6937500446539429301, guid: 5f3536d4a16ce5344af88d8cf0c6c863, type: 3}
   - {fileID: 7460046300004610927, guid: 5f3536d4a16ce5344af88d8cf0c6c863, type: 3}
   - {fileID: 7034338576483803127, guid: 5f3536d4a16ce5344af88d8cf0c6c863, type: 3}
+  - {fileID: 21300000, guid: d2e36f55bd8d3be41b8eadaeffc0b269, type: 3}
+  - {fileID: 21300000, guid: 43ebcda535dff38458e59c65d9442f4a, type: 3}
+  - {fileID: 21300000, guid: cdbb51579f92bb24584b844c7842e55e, type: 3}
   - {fileID: 21300000, guid: b2709608bf577e448b9e0de5c7a182d0, type: 3}
+  - {fileID: 21300000, guid: 8355fa2831bd1e84b83db61cfc96e390, type: 3}
+  - {fileID: 21300000, guid: 8055321a2864f954187c9e0d7ff606ce, type: 3}
+  - {fileID: 21300000, guid: 46ecbf8c8e849e54dbc33c82d5f1a1fd, type: 3}
   - {fileID: 21300000, guid: b611444f94a897344b62da99c6e62edb, type: 3}
+  - {fileID: 21300000, guid: afca1caf86ab65c43858877b96a636f4, type: 3}
+  - {fileID: 21300000, guid: 7d4c08cf8f9916849877baf16b6a88e2, type: 3}
   - {fileID: 21300000, guid: f0614dcf1fcb4d34ca49767ffec618a1, type: 3}
   m_PackedSpriteNamesToIndex:
+  - 3
   - 1
   - 6
   - 5
@@ -69,7 +81,15 @@ SpriteAtlas:
   - Jump_3
   - Jump_0
   - Jump_1
+  - 2
   - 3
+  - 5
+  - 3
+  - 1
+  - 2
+  - 1
+  - 4
+  - 6
   - 4
   - 2
   m_Tag: Player Sprite Asset
