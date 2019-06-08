@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public float JumpHoldAcc = 4;
     public float JumpUpGravityModulus = 10;
     public float JumpDownGravityModulus = 20;
+    private IEnumerator JumpState;
     private event Action<Collision2D> CollisionEnterEvent;
     private IEnumerator currentState = null;
     [ReadOnly]
@@ -146,6 +147,7 @@ public class PlayerController : MonoBehaviour
             timeCount += Time.fixedDeltaTime;
             if(!InputUtils.GetMainKey())
             {
+                JumpState = null;
                 yield break;
             }
             if(timeCount < JumpTMax && timeCount >= JumpTMin)
@@ -154,6 +156,7 @@ public class PlayerController : MonoBehaviour
             }
             else if(timeCount >= JumpTMax) 
             {
+                JumpState = null;
                 yield break;
             }
 
@@ -166,7 +169,11 @@ public class PlayerController : MonoBehaviour
         {
             if(InputUtils.GetMainKey())
             {
-                StartCoroutine(Jump());
+                if(JumpState == null)
+                {
+                    JumpState = Jump();
+                    StartCoroutine(JumpState);
+                }
             }
             if(Velocity.y < 0)
             {
