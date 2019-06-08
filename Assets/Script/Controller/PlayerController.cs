@@ -3,17 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public static class InputUtils
+{
+    public static bool GetMainKey()
+    {
+        return Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space);
+    }
+}
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
     public Vector2 Velocity = new Vector2(1, 0);
     private Collider2D onGroundCollider = null;
-    [Header("Idle")]
-    public float IdleXSpeed = 2;
-    public float IdleGravity = 3;
-    public float IdleJumpYSpeed = 4;
+    [Header("Horizontal")]
+    public float XMaxSpeed = 2;
+    public float XAcc = 4;
+    [Header("Jump")]
+    public float BaseGravity = 20;
+    public float JumpTMin = 3;
+    public float JumpTMax= 4;
+    public float JumpSpeed = 8;
+    public float JumpHoldAcc = 4;
+    public float JumpUpGravityModulus = 10;
+    public float JumpDownGravityModulus = 20;
     private event Action<Collision2D> CollisionEnterEvent;
     private IEnumerator currentState = null;
+    [ReadOnly]
     public string StateName = "Null";
     public void ChangeState(IEnumerator state)
     {
@@ -87,7 +103,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (FootY - contact.point.y >= 0f && Mathf.Approximately(contact.normal.x, 0))
                     {
-                        ChangeState(Ground());
+                        ChangeState(GroundState());
                         onGroundCollider = contact.collider;
                     }
                 }
@@ -109,39 +125,69 @@ public class PlayerController : MonoBehaviour
             if(StateName == "Ground" && collision.collider == onGroundCollider)
             {
                 onGroundCollider = null;
-                ChangeState(Air());
+                ChangeState(AirState());
             }
         };
-        ChangeState(Air());
+        ChangeState(AirState());
         while(true)
         {
             rigidbody.velocity = Velocity;
             yield return new WaitForFixedUpdate();
         }
     }
-    public IEnumerator Ground()
+    public IEnumerator Jump()
+    {
+        float timeCount = 0;
+        Velocity.y = JumpSpeed;
+        while(true)
+        {
+            yield return new WaitForFixedUpdate();
+            timeCount += Time.fixedDeltaTime;
+            if(!InputUtils.GetMainKey())
+            {
+                yield break;
+            }
+            if(timeCount < JumpTMax && timeCount >= JumpTMin)
+            {
+                Velocity.y += JumpHoldAcc * Time.fixedDeltaTime;
+            }
+            else if(timeCount >= JumpTMax) 
+            {
+                yield break;
+            }
+
+        }
+    }
+    public IEnumerator GroundState()
     {
         StateName = "Ground";
         while(true)
         {
-            if(Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space))
+            if(InputUtils.GetMainKey())
             {
-                Velocity.y = IdleJumpYSpeed;
+                StartCoroutine(Jump());
             }
-            else
+            if(Velocity.y < 0)
             {
                 Velocity.y = 0;
             }
-            Velocity.x = Mathf.Sign(Velocity.x) * IdleXSpeed;
+            float xSign = Mathf.Sign(Velocity.x);
+            if (xSign == 0) xSign = 1;
+            Velocity += xSign * Vector2.right * XAcc * Time.fixedDeltaTime;
+            if(Mathf.Abs(Velocity.x) > XMaxSpeed)
+            {
+                Velocity.x = xSign * XMaxSpeed;
+            }
             yield return new WaitForFixedUpdate();
         }
     }
-    public IEnumerator Air()
+    public IEnumerator AirState()
     {
         StateName = "Air";
         while(true)
         {
-            Velocity.y -= IdleGravity * Time.fixedDeltaTime;
+            var gravity = (Velocity.y >= 0 ? JumpUpGravityModulus : JumpDownGravityModulus) * BaseGravity;
+            Velocity.y -=  gravity * Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
     }
