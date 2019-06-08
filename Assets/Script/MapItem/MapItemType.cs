@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapItemType : MonoBehaviour
+public abstract class MapItemType : MonoBehaviour
 {
     public enum TypeEnum
     {
@@ -12,5 +12,5 @@ public class MapItemType : MonoBehaviour
         GrassWall, //草墙
         DirtBlock,
     }
-    public TypeEnum type;
+    public abstract TypeEnum GetTypeFromContact(ContactPoint2D contact);
 }

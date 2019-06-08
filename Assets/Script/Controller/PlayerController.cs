@@ -39,12 +39,23 @@ public class PlayerController : MonoBehaviour
     public IEnumerator Main()
     {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+
         CollisionEnterEvent += (Collision2D collision) =>
         {
             var mapItemType = collision.collider.GetComponent<MapItemType>();
             if(mapItemType != null)
             {
-                if(mapItemType.type == MapItemType.TypeEnum.StoneWall || mapItemType.type == MapItemType.TypeEnum.MapBorder)
+                bool reflectX = false;
+                foreach(var contact in collision.contacts)
+                {
+                    var type = mapItemType.GetTypeFromContact(contact);
+                    if(type == MapItemType.TypeEnum.StoneWall || type == MapItemType.TypeEnum.MapBorder)
+                    {
+                        reflectX = true;
+                        break;
+                    }
+                }
+                if(reflectX)
                 {
                     Velocity.x = -Velocity.x;
                 }
@@ -53,6 +64,10 @@ public class PlayerController : MonoBehaviour
         };
         CollisionStayEvent += (Collision2D collision) =>
         {
+            foreach(var contact in collision.contacts)
+            {
+                Debug.DrawLine(contact.point, contact.point + contact.normal, Color.red);
+            }
             if(!OnGround)
             {
                 foreach(var contact in collision.contacts)
