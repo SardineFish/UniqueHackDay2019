@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
             {
                 foreach(var contact in collision.contacts)
                 {
-                    if(contact.normal == new Vector2(0, -1))
+                    if(Vector2.SignedAngle(contact.normal, Vector2.up) < 1e-1f)
                     {
                         if(JumpState != null)
                         {
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
             {
                 foreach(var contact in collision.contacts)
                 {
-                    if (FootY - contact.point.y >= 0f && Mathf.Approximately(contact.normal.x, 0))
+                    if (FootY - contact.point.y >= -1e-1f && Mathf.Approximately(contact.normal.x, 0))
                     {
                         ChangeState(GroundState());
                         onGroundCollider = contact.collider;
