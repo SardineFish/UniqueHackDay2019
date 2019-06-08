@@ -212,6 +212,9 @@ public class MovableEntity : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        OnGround = true;
+        jumpCount = MaxJumpCount;
+        return;
         for (int i = 0; i < collision.contactCount; i++)
         {
             var contract = collision.GetContact(i);
