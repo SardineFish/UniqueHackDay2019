@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &8782750
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &33616712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &45919793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -848,8 +848,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &47327797
 MonoBehaviour:
@@ -935,7 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &51842840
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1055,7 +1053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &53604604
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1175,7 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &71427545
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1378,8 +1376,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &87257892
 MonoBehaviour:
@@ -1544,7 +1540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &116004202
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1701,7 +1697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &152275250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1939,8 +1935,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &189319410
 MonoBehaviour:
@@ -1981,6 +1975,85 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &200547176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200547177}
+  - component: {fileID: 200547178}
+  m_Layer: 0
+  m_Name: Renderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &200547177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200547176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 785344212}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &200547178
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200547176}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.32}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &203929177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,7 +2099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &203929180
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2146,7 +2219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &214778836
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2266,7 +2339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &236199906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2386,7 +2459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &237300394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2506,7 +2579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &248308921
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2626,7 +2699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &253627301
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2878,7 +2951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &286430897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2986,7 +3059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &291418640
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3106,7 +3179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &296206896
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3226,7 +3299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &297810597
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3350,8 +3423,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &313603330
 MonoBehaviour:
@@ -3516,7 +3587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &353427347
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3756,7 +3827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &360602169
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3880,8 +3951,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &361422585
 MonoBehaviour:
@@ -3967,7 +4036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &365950351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4170,8 +4239,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &377200684
 MonoBehaviour:
@@ -4261,8 +4328,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &385737202
 MonoBehaviour:
@@ -4348,7 +4413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &388683188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4480,7 +4545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &395491394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4592,8 +4657,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &401911255
 MonoBehaviour:
@@ -4679,7 +4742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &404546797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4754,6 +4817,85 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &406783332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 406783333}
+  - component: {fileID: 406783334}
+  m_Layer: 0
+  m_Name: Renderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &406783333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406783332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1737832711}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &406783334
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406783332}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.32}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &433552684
 GameObject:
   m_ObjectHideFlags: 0
@@ -4919,7 +5061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &433729537
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5238,7 +5380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &455739209
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5636,7 +5778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &496507270
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5760,8 +5902,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &508618298
 MonoBehaviour:
@@ -6075,7 +6215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &530993329
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6660,7 +6800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &584998694
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6780,7 +6920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &587995586
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6900,7 +7040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &600731241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7169,7 +7309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &613188295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7409,7 +7549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &626241590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7533,8 +7673,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &632269495
 MonoBehaviour:
@@ -7620,7 +7758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &654328365
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7740,7 +7878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &658042933
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7809,6 +7947,95 @@ BoxCollider2D:
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!1 &679048484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679048485}
+  - component: {fileID: 679048488}
+  - component: {fileID: 679048487}
+  - component: {fileID: 679048486}
+  m_Layer: 0
+  m_Name: Grass (33)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &679048485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679048484}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 28, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 932442375}
+  m_Father: {fileID: 706476172}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &679048486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679048484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
+  NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  burnt: 0
+--- !u!114 &679048487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679048484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+--- !u!61 &679048488
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679048484}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -7934,7 +8161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!1 &687631134
 GameObject:
   m_ObjectHideFlags: 0
@@ -7980,7 +8207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &687631137
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8100,7 +8327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &706411458
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8232,6 +8459,9 @@ Transform:
   - {fileID: 1906864369}
   - {fileID: 1393758670}
   - {fileID: 361422583}
+  - {fileID: 1737832711}
+  - {fileID: 785344212}
+  - {fileID: 679048485}
   m_Father: {fileID: 602569686}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8280,7 +8510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &707398653
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8626,7 +8856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &730119833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8734,7 +8964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &753789641
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9008,6 +9238,95 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 1
+--- !u!1 &785344211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 785344212}
+  - component: {fileID: 785344215}
+  - component: {fileID: 785344214}
+  - component: {fileID: 785344213}
+  m_Layer: 0
+  m_Name: Grass (32)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &785344212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785344211}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 29, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 200547177}
+  m_Father: {fileID: 706476172}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &785344213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785344211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
+  NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  burnt: 0
+--- !u!114 &785344214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785344211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+--- !u!61 &785344215
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785344211}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &820511507
 GameObject:
   m_ObjectHideFlags: 0
@@ -9136,8 +9455,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &827811315
 MonoBehaviour:
@@ -9223,7 +9540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &827952233
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9511,7 +9828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &857358737
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10030,7 +10347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &907488976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10241,7 +10558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &926309682
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10304,6 +10621,85 @@ Transform:
   m_Father: {fileID: 2135904481}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &932442374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932442375}
+  - component: {fileID: 932442376}
+  m_Layer: 0
+  m_Name: Renderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &932442375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932442374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 679048485}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &932442376
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932442374}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.32}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &940652557
 GameObject:
   m_ObjectHideFlags: 0
@@ -10353,8 +10749,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &940652560
 MonoBehaviour:
@@ -10763,8 +11157,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &976080557
 MonoBehaviour:
@@ -10862,7 +11254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &979714111
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11090,7 +11482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &992237188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11330,7 +11722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1005638500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11493,8 +11885,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!1 &1013142242
 GameObject:
@@ -11541,7 +11931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1013142245
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11831,7 +12221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1138246265
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11939,7 +12329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1149325893
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12063,8 +12453,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1150139303
 MonoBehaviour:
@@ -12150,7 +12538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1153861689
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12390,7 +12778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1217593743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12514,8 +12902,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1227744879
 MonoBehaviour:
@@ -12680,7 +13066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1268569104
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12800,7 +13186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1270071533
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13085,7 +13471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1307381816
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13371,7 +13757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1347123529
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13495,8 +13881,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1372886016
 MonoBehaviour:
@@ -13582,7 +13966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1382968776
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13706,8 +14090,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1393758672
 MonoBehaviour:
@@ -13793,7 +14175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1399929837
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13943,7 +14325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1404896681
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14142,7 +14524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1445401514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14345,8 +14727,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1458092518
 MonoBehaviour:
@@ -14432,7 +14812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1459489011
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14552,7 +14932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1468296344
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14672,7 +15052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1469471734
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14792,7 +15172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1501777212
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15097,8 +15477,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1553943788
 MonoBehaviour:
@@ -15184,7 +15562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1597522055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15304,7 +15682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1610116806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15544,7 +15922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1626208784
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15668,8 +16046,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1632892124
 MonoBehaviour:
@@ -15755,7 +16131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1649833222
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15879,8 +16255,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1662191814
 MonoBehaviour:
@@ -15966,7 +16340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1679398475
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16090,8 +16464,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1712168984
 MonoBehaviour:
@@ -17054,6 +17426,95 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1737832710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1737832711}
+  - component: {fileID: 1737832714}
+  - component: {fileID: 1737832713}
+  - component: {fileID: 1737832712}
+  m_Layer: 0
+  m_Name: Grass (31)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1737832711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737832710}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 29, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 406783333}
+  m_Father: {fileID: 706476172}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1737832712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737832710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
+  NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
+  burnt: 0
+--- !u!114 &1737832713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737832710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+--- !u!61 &1737832714
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737832710}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1762338494
 GameObject:
   m_ObjectHideFlags: 0
@@ -17182,8 +17643,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1763801048
 MonoBehaviour:
@@ -17273,8 +17732,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1769063582
 MonoBehaviour:
@@ -17360,7 +17817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1776915873
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17571,7 +18028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1785375659
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17799,7 +18256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1809921264
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17923,8 +18380,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1822768129
 MonoBehaviour:
@@ -18130,7 +18585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1849891514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18262,7 +18717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1855295970
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18604,8 +19059,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1906864371
 MonoBehaviour:
@@ -18691,7 +19144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1926762443
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18811,7 +19264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1946629882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18935,8 +19388,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1947989654
 MonoBehaviour:
@@ -19026,8 +19477,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &1964204223
 MonoBehaviour:
@@ -19113,7 +19562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1966966711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19473,7 +19922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &1972658079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19792,7 +20241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2011878813
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19912,7 +20361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2019767454
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20032,7 +20481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2032032642
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20152,7 +20601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2042211713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20272,7 +20721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2043443007
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20396,8 +20845,6 @@ MonoBehaviour:
   Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
-  BurnTime: 2
-  GrowTime: 3
   burnt: 0
 --- !u!114 &2051197371
 MonoBehaviour:
@@ -20483,7 +20930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2086301557
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20603,7 +21050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2096235513
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20802,7 +21249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2098625906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20922,7 +21369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2127465298
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21079,7 +21526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57c1432e32e2db4ab2b9b2e23ecdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 4
+  Type: 1
 --- !u!212 &2131134595
 SpriteRenderer:
   m_ObjectHideFlags: 0
