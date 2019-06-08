@@ -321,8 +321,9 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(grassProgress);
         yield return grassProgress;
 
+        float xDir = Mathf.Sign((finalPos - rigidbody.position).x);
         rigidbody.position = finalPos;
-        Velocity.x = XDirection * outGrassVelocity.x;
+        Velocity.x = xDir * outGrassVelocity.x;
         Velocity.y = outGrassVelocity.y;
         ChangeState(AirState());
         
