@@ -11,12 +11,13 @@ public static class InputUtils
     }
 }
 
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
     public Vector2 Velocity = new Vector2(1, 0);
-    private Collider2D onGroundCollider = null;
     [Header("Horizontal")]
+    public int XDirection = 1;
     public float XMaxSpeed = 2;
     public float XAcc = 4;
     [Header("Jump")]
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour
     public float JumpHoldAcc = 4;
     public float JumpUpGravityModulus = 10;
     public float JumpDownGravityModulus = 20;
+    [Header("StickOnWall")]
+    public float StickOnWallGravity = 30;
+    public float StickOnWallMaxSpeed = 10;
+    private bool lastMainKey = false;
     private IEnumerator JumpState;
     private event Action<Collision2D> CollisionEnterEvent;
     private IEnumerator currentState = null;
@@ -59,8 +64,8 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            var box = GetComponentInChildren<BoxCollider2D>();
-            return box.bounds.min.y;
+            var collider = GetComponentInChildren<Collider2D>();
+            return collider.bounds.min.y;
         }
     }
     public IEnumerator Main()
@@ -74,27 +79,7 @@ public class PlayerController : MonoBehaviour
         CollisionStayEvent += (Collision2D collision) =>
         {
             collision.collider.GetComponent<MapItem>()?.OnPlayerTouch();
-            var mapItemType = collision.collider.GetComponent<MapItemType>();
-            if(mapItemType != null)
-            {
-                bool reflectX = false;
-                foreach(var contact in collision.contacts)
-                {
-                    if(Mathf.Sign(contact.normal.x) * Mathf.Sign(Velocity.x) == -1)
-                    {
-                        var type = mapItemType.GetTypeFromContact(contact);
-                        if(type == MapItemType.TypeEnum.StoneWall || type == MapItemType.TypeEnum.MapBorder)
-                        {
-                            reflectX = true;
-                            break;
-                        }
-                    }
-                }
-                if(reflectX)
-                {
-                    Velocity.x = -Velocity.x;
-                }
-            }
+
             foreach(var contact in collision.contacts)
             {
                 Debug.DrawLine(contact.point, contact.point + contact.normal, Color.red);
@@ -107,6 +92,13 @@ public class PlayerController : MonoBehaviour
                     {
                         ChangeState(GroundState());
                         onGroundCollider = contact.collider;
+                        break;
+                    }
+                    if(HorizontalIsReflect(collision))
+                    {
+                        ChangeState(StickOnWallState());
+                        stickOnWallCollider = contact.collider;
+                        break;
                     }
                 }
             }
@@ -114,10 +106,34 @@ public class PlayerController : MonoBehaviour
             {
                 foreach(var contact in collision.contacts)
                 {
-                    if (FootY - contact.point.y >= 0f && Mathf.Approximately(contact.normal.y, 0))
+                    bool digInGround = FootY - contact.point.y >= -0.01f;
+                    bool normalHorizontal = Mathf.Approximately(contact.normal.y, 0);
+                    if (digInGround && normalHorizontal)
                     {
                         rigidbody.position += Vector2.up * (FootY - contact.point.y + 0.01f);
                     }
+                    if (HorizontalIsReflect(collision))
+                    {
+                        XDirection = -XDirection;
+                    }
+                }
+
+            }
+            else if(StateName == "StickOnWall")
+            {
+                foreach(var contact in collision.contacts)
+                {
+                    if (FootY - contact.point.y >= 0f && Mathf.Approximately(contact.normal.x, 0))
+                    {
+                        if(Velocity.y < 0)
+                        {
+                            XDirection = -XDirection;
+                        }
+                        ChangeState(GroundState());
+                        onGroundCollider = contact.collider;
+                        break;
+                    }
+
                 }
 
             }
@@ -129,6 +145,12 @@ public class PlayerController : MonoBehaviour
                 onGroundCollider = null;
                 ChangeState(AirState());
             }
+
+            if(StateName == "StickOnWall" && collision.collider == stickOnWallCollider)
+            {
+                stickOnWallCollider = null;
+                ChangeState(AirState());
+            }
         };
         ChangeState(AirState());
         while(true)
@@ -136,6 +158,34 @@ public class PlayerController : MonoBehaviour
             rigidbody.velocity = Velocity;
             yield return new WaitForFixedUpdate();
         }
+    }
+    private bool HorizontalIsReflect(Collision2D collision)
+    {
+        var mapItemType = collision.collider.GetComponent<MapItemType>();
+        if(mapItemType != null)
+        {
+            foreach(var contact in collision.contacts)
+            {
+                if(Mathf.Sign(contact.normal.x) * XDirection == -1 && contact.point.y - FootY > 0.01)
+                {
+                    var type = mapItemType.GetTypeFromContact(contact);
+                    if(type == MapItemType.TypeEnum.StoneWall || type == MapItemType.TypeEnum.MapBorder)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public void StartJump()
+    {
+        if(JumpState != null)
+        {
+            StopCoroutine(JumpState);
+        }
+        JumpState = Jump();
+        StartCoroutine(JumpState);
     }
     public IEnumerator Jump()
     {
@@ -147,7 +197,6 @@ public class PlayerController : MonoBehaviour
             timeCount += Time.fixedDeltaTime;
             if(!InputUtils.GetMainKey())
             {
-                JumpState = null;
                 yield break;
             }
             if(timeCount < JumpTMax && timeCount >= JumpTMin)
@@ -156,47 +205,80 @@ public class PlayerController : MonoBehaviour
             }
             else if(timeCount >= JumpTMax) 
             {
-                JumpState = null;
                 yield break;
             }
 
         }
     }
+    private void XSpeedProcess()
+    {
+        float xSign = Mathf.Sign(Velocity.x);
+        if(xSign * XDirection == -1)
+        {
+            Velocity.x = 0;
+        }
+        Velocity += XDirection * Vector2.right * XAcc * Time.fixedDeltaTime;
+        if(Mathf.Abs(Velocity.x) > XMaxSpeed)
+        {
+            Velocity.x = Mathf.Sign(Velocity.x) * XMaxSpeed;
+        }
+    }
+    private Collider2D onGroundCollider = null;
     public IEnumerator GroundState()
     {
         StateName = "Ground";
         while(true)
         {
-            if(InputUtils.GetMainKey())
+            if(!lastMainKey && InputUtils.GetMainKey())
             {
-                if(JumpState == null)
-                {
-                    JumpState = Jump();
-                    StartCoroutine(JumpState);
-                }
+                StartJump();
             }
+            lastMainKey = InputUtils.GetMainKey();
             if(Velocity.y < 0)
             {
                 Velocity.y = 0;
             }
-            float xSign = Mathf.Sign(Velocity.x);
-            if (xSign == 0) xSign = 1;
-            Velocity += xSign * Vector2.right * XAcc * Time.fixedDeltaTime;
-            if(Mathf.Abs(Velocity.x) > XMaxSpeed)
-            {
-                Velocity.x = xSign * XMaxSpeed;
-            }
+            XSpeedProcess();
             yield return new WaitForFixedUpdate();
         }
+    }
+    private Collider2D stickOnWallCollider = null;
+    public IEnumerator StickOnWallState()
+    {
+        StateName = "StickOnWall";
+        if(JumpState != null)
+        {
+            StopCoroutine(JumpState);
+            JumpState = null;
+        }
+        Velocity.x = 0;
+        while(true)
+        {
+            Velocity.y -= StickOnWallGravity * Time.fixedDeltaTime;
+            Velocity.y = Mathf.Max(-StickOnWallMaxSpeed, Velocity.y);
+            
+            if(!lastMainKey && InputUtils.GetMainKey())
+            {
+                XDirection = -XDirection;
+                Velocity.x = XDirection * XMaxSpeed;
+                StartJump();
+                yield break;
+            }
+            lastMainKey = InputUtils.GetMainKey();
+            
+            yield return new WaitForFixedUpdate();
+        }
+        
     }
     public IEnumerator AirState()
     {
         StateName = "Air";
         while(true)
         {
+            yield return new WaitForFixedUpdate();
             var gravity = (Velocity.y >= 0 ? JumpUpGravityModulus : JumpDownGravityModulus) * BaseGravity;
             Velocity.y -=  gravity * Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate();
+            XSpeedProcess();
         }
     }
 }
