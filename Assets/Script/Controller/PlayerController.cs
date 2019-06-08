@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
+using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public static class InputUtils
 {
@@ -15,6 +17,8 @@ public static class InputUtils
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    public BoxDetect boxDetect;
+    public Animator animator;
     public Vector2 Velocity = new Vector2(1, 0);
     [Header("Horizontal")]
     public int XDirection = 1;
@@ -79,98 +83,12 @@ public class PlayerController : MonoBehaviour
     {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
 
-        CollisionEnterEvent += (Collision2D collision) =>
-        {
-            if(StateName == "Air")
-            {
-                foreach(var contact in collision.contacts)
-                {
-                    if(Vector2.SignedAngle(contact.normal, Vector2.up) < 1e-1f)
-                    {
-                        if(JumpState != null)
-                        {
-                            StopCoroutine(JumpState);
-                            JumpState = null;
-                        }
-                        Velocity.y = 0;
-                    }
-                }
-            }
-        };
         CollisionStayEvent += (Collision2D collision) =>
         {
             collision.collider.GetComponent<MapItem>()?.OnPlayerTouch();
-
             foreach(var contact in collision.contacts)
             {
                 Debug.DrawLine(contact.point, contact.point + contact.normal, Color.red);
-            }
-            if(StateName == "Air")
-            {
-                foreach(var contact in collision.contacts)
-                {
-                    if (FootY - contact.point.y >= -1e-1f && Mathf.Approximately(contact.normal.x, 0))
-                    {
-                        ChangeState(GroundState());
-                        onGroundCollider = contact.collider;
-                        break;
-                    }
-                    if(HorizontalIsReflect(collision))
-                    {
-                        ChangeState(StickOnWallState());
-                        stickOnWallCollider = contact.collider;
-                        break;
-                    }
-                }
-            }
-            else if(StateName == "Ground")
-            {
-                foreach(var contact in collision.contacts)
-                {
-                    bool digInGround = FootY - contact.point.y >= -0.01f;
-                    bool normalHorizontal = Mathf.Approximately(contact.normal.y, 0);
-                    if (digInGround && normalHorizontal)
-                    {
-                        rigidbody.position += Vector2.up * (FootY - contact.point.y + 0.01f);
-                    }
-                    if (HorizontalIsReflect(collision))
-                    {
-                        XDirection = -XDirection;
-                    }
-                }
-
-            }
-            else if(StateName == "StickOnWall")
-            {
-                foreach(var contact in collision.contacts)
-                {
-                    if (FootY - contact.point.y >= 0f && Mathf.Approximately(contact.normal.x, 0))
-                    {
-                        if(Velocity.y < 0)
-                        {
-                            XDirection = -XDirection;
-                        }
-                        ChangeState(GroundState());
-                        onGroundCollider = contact.collider;
-                        break;
-                    }
-
-                }
-
-            }
-        };
-        CollisionExitEvent += (Collision2D collision) =>
-        {
-            if(StateName == "Ground" && collision.collider == onGroundCollider)
-            {
-                onGroundCollider = null;
-                ChangeState(AirState());
-            }
-
-            if(StateName == "StickOnWall" && collision.collider == stickOnWallCollider)
-            {
-                stickOnWallCollider = null;
-                ChangeState(AirState());
             }
         };
         TriggerEnterEvent += (Collider2D collider) => {
@@ -184,8 +102,73 @@ public class PlayerController : MonoBehaviour
         while(true)
         {
             rigidbody.velocity = Velocity;
+            {
+                var detectR = boxDetect.DetectByDirection(Vector2.down);
+                if(detectR == null && StateName == "Ground")
+                {
+                    ChangeState(AirState());
+                }
+                else if(detectR != null)
+                {
+                    if(StateName == "Air")
+                    {
+                        ChangeState(GroundState());
+                    }
+                    else if(StateName == "StickOnWall")
+                    {
+                        if(Velocity.y < 0)
+                        {
+                            XDirection = -XDirection;
+                        }
+                        ChangeState(GroundState());
+                    }
+                }
+            }
+
+            {
+                var detectR = boxDetect.DetectByDirection(new Vector2(XDirection, 0));
+                if(detectR != null)
+                {
+                    if(StateName == "Air")
+                    {
+                        ChangeState(StickOnWallState());
+                    }
+                    else if(StateName == "Ground")
+                    {
+                        XDirection = -XDirection;
+                    }
+                }
+                else if(detectR == null && StateName == "StickOnWall")
+                {
+                    ChangeState(AirState());
+                }
+            }
+
+            {
+                var detectR = boxDetect.DetectByDirection(Vector2.up);
+                if(detectR != null && StateName == "Air")
+                {
+                    if(JumpState != null)
+                    {
+                        StopCoroutine(JumpState);
+                        JumpState = null;
+                    }
+                    Velocity.y = 0;
+                }
+            }
             yield return new WaitForFixedUpdate();
         }
+    }
+    public void Update()
+    {
+    }
+    private string addDirectionSuffix(string prefix)
+    {
+        string suffix = XDirection < 0 ? "Left" : "Right";
+        StringBuilder sb = new StringBuilder();
+        sb.Append(prefix);
+        sb.Append(suffix);
+        return sb.ToString();
     }
     private bool HorizontalIsReflect(Collision2D collision)
     {
@@ -251,14 +234,18 @@ public class PlayerController : MonoBehaviour
             Velocity.x = Mathf.Sign(Velocity.x) * XMaxSpeed;
         }
     }
-    private Collider2D onGroundCollider = null;
     public IEnumerator GroundState()
     {
+        if(StateName == "Air")
+        {
+            animator.Play(addDirectionSuffix("FallToGround"));
+        }
         StateName = "Ground";
         while(true)
         {
             if(!lastMainKey && InputUtils.GetMainKey())
             {
+                lastMainKey = true;
                 StartJump();
             }
             lastMainKey = InputUtils.GetMainKey();
@@ -268,9 +255,14 @@ public class PlayerController : MonoBehaviour
             }
             XSpeedProcess();
             yield return new WaitForFixedUpdate();
+            var clipInfo = animator.GetCurrentAnimatorClipInfo(0)[0];
+            var clipName = clipInfo.clip.name;
+            if(clipName != addDirectionSuffix("FallToGround"))
+            {
+                animator.Play(addDirectionSuffix("Move"));
+            }
         }
     }
-    private Collider2D stickOnWallCollider = null;
     public IEnumerator StickOnWallState()
     {
         StateName = "StickOnWall";
@@ -287,6 +279,7 @@ public class PlayerController : MonoBehaviour
             
             if(!lastMainKey && InputUtils.GetMainKey())
             {
+                lastMainKey = true;
                 XDirection = -XDirection;
                 Velocity.x = XDirection * XMaxSpeed;
                 StartJump();
@@ -304,6 +297,14 @@ public class PlayerController : MonoBehaviour
         while(true)
         {
             yield return new WaitForFixedUpdate();
+            if(Velocity.y > 0)
+            {
+                animator.Play(addDirectionSuffix("JumpUp"));
+            }
+            else
+            {
+                animator.Play(addDirectionSuffix("JumpDown"));
+            }
             var gravity = (Velocity.y >= 0 ? JumpUpGravityModulus : JumpDownGravityModulus) * BaseGravity;
             Velocity.y -=  gravity * Time.fixedDeltaTime;
             XSpeedProcess();
