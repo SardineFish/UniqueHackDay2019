@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TileMap : MonoBehaviour
+public class TileMap : Singleton<TileMap>
 {
     public float TileSize = 1;
-    public void GetTile(Vector2Int position)
+    public TypedTile GetTile(Vector2Int position)
     {
-
+        foreach(var tile in GetComponentsInChildren<TypedTile>())
+        {
+            if (WorldToGrid(tile.transform.position) == position)
+                return tile;
+        }
+        return null;
     }
 
     public Vector2Int WorldToGrid(Vector2 position)
