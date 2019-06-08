@@ -27,7 +27,7 @@ public class Tile2DMap : MapItemType
         var tilemap = GetComponent<Tilemap>();
         var normal = -contact.normal;
         var tilePos = tilemap.WorldToCell(contact.point);
-        tilePos += new Vector3Int(Mathf.FloorToInt(normal.x), Mathf.FloorToInt(normal.y), 0);
+        tilePos += new Vector3Int(Mathf.RoundToInt(normal.x), Mathf.RoundToInt(normal.y), 0);
         var tile = tilemap.GetTile<TypedTile>(tilePos);
         return tile == null ? MapItemType.TypeEnum.Null : tile.Type;
     }
