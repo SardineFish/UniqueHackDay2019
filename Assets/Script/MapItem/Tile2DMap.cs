@@ -24,11 +24,11 @@ public class Tile2DMap : MapItemType
 
     public MapItemType.TypeEnum GetTileType(ContactPoint2D contact)
     {
-        var tilemap = GetComponent<Tilemap>();
+        var tilemap = GetComponent<UnityEngine.Tilemaps.Tilemap>();
         var normal = -contact.normal;
         var tilePos = tilemap.WorldToCell(contact.point);
         tilePos += new Vector3Int(Mathf.RoundToInt(normal.x), Mathf.RoundToInt(normal.y), 0);
-        var tile = tilemap.GetTile<TypedTile>(tilePos);
+        var tile = tilemap.GetTile<TypedTile_Legacy>(tilePos);
         return tile == null ? MapItemType.TypeEnum.Null : tile.Type;
     }
 
