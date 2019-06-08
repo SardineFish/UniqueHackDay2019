@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public float StickOnWallGravity = 30;
     public float StickOnWallMaxSpeed = 10;
     private bool lastMainKey = false;
+    [Header("Grass")]
+    public Vector2 outGrassVelocity = new Vector2(7, 10);
     private IEnumerator JumpState;
     private event Action<Collision2D> CollisionEnterEvent;
     private IEnumerator currentState = null;
@@ -60,6 +62,11 @@ public class PlayerController : MonoBehaviour
     {
         CollisionExitEvent?.Invoke(collision);
     }
+    private event Action<Collider2D> TriggerEnterEvent;
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        TriggerEnterEvent?.Invoke(collider);
+    }
     private float FootY
     {
         get
@@ -72,10 +79,6 @@ public class PlayerController : MonoBehaviour
     {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
 
-        CollisionEnterEvent += (Collision2D collision) =>
-        {
-
-        };
         CollisionStayEvent += (Collision2D collision) =>
         {
             collision.collider.GetComponent<MapItem>()?.OnPlayerTouch();
@@ -150,6 +153,13 @@ public class PlayerController : MonoBehaviour
             {
                 stickOnWallCollider = null;
                 ChangeState(AirState());
+            }
+        };
+        TriggerEnterEvent += (Collider2D collider) => {
+            var grass = collider.GetComponent<GrassItem>();
+            if(grass != null && !grass.burnt)
+            {
+                ChangeState(InGrassState(grass));
             }
         };
         ChangeState(AirState());
@@ -280,5 +290,23 @@ public class PlayerController : MonoBehaviour
             Velocity.y -=  gravity * Time.fixedDeltaTime;
             XSpeedProcess();
         }
+    }
+    public IEnumerator InGrassState(GrassItem grass)
+    {
+        StateName = "InGrass";
+
+        var rigidbody = GetComponent<Rigidbody2D>();
+
+        Velocity = Vector2.zero;
+        Vector2 finalPos = Vector2.zero;
+        var grassProgress = grass.GrassProcess((pos) => { finalPos = pos; });
+        StartCoroutine(grassProgress);
+        yield return grassProgress;
+
+        rigidbody.position = finalPos;
+        Velocity.x = XDirection * outGrassVelocity.x;
+        Velocity.y = outGrassVelocity.y;
+        ChangeState(AirState());
+        
     }
 }

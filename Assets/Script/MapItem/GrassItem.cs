@@ -4,18 +4,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class GrassItem : MapItem
+public class GrassItem : MonoBehaviour
 {
     public GameObject Fire;
     public Sprite BurntGrass;
     public Sprite NormalGrass;
     public float BurnTime = 2;
     public float GrowTime = 2;
-    bool burnt = false;
-    public override void OnPlayerTouch()
-    {
-        StartCoroutine(GrassProcess((pos) => Debug.Log(pos)));
-    }
+    public bool burnt = false;
     public void Burn()
     {
         if (burnt)
@@ -103,7 +99,6 @@ public class GrassItem : MapItem
 
     public IEnumerator GrassProcess(Action<Vector2> setPosition)
     {
-        GameObject.Find("Player").SetActive(false);
         var searched = new List<TypedTile>();
         searched.Add(GetComponent<TypedTile>());
         var tile = BFS(searched);
