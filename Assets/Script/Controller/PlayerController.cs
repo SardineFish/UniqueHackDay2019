@@ -170,10 +170,6 @@ public class PlayerController : MonoBehaviour
     }
     public void Update()
     {
-        if(InputUtils.GetMainKeyDown())
-        {
-            Debug.Log("KeyDown");
-        }
         inputBuffer.Enqueue(InputUtils.GetMainKeyDown());
         while(inputBuffer.Count > 5)
         {
