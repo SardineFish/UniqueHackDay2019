@@ -5,7 +5,6 @@ using UI;
 
 public class MainUI : Singleton<MainUI>
 {
-    public string SceneToLoad;
     public CoveredUI StartupUI;
     public CoveredUI BlackScreen;
     public CoveredUI WhiteScreen;
@@ -35,15 +34,20 @@ public class MainUI : Singleton<MainUI>
         yield return BlackScreen.Show(.5f);
         yield return new WaitForSeconds(.5f);
         StartupUI.gameObject.SetActive(false);
-        yield return SceneManager.LoadSceneAsync(SceneToLoad, LoadSceneMode.Single);
+        yield return SceneManager.LoadSceneAsync(Level.Instance.NextScene, LoadSceneMode.Single);
         yield return BlackScreen.Hide(.5f);
         //yield return new WaitForSeconds(2);
         //yield return Fail();
+        /*
         yield return new WaitForSeconds(4);
-        yield return Pass();
+        yield return Pass();*/
     }
 
-    public IEnumerator Fail()
+    public void Fail()
+    {
+    }
+
+    public IEnumerator FailProcess()
     {
         yield return GameFail.Show(.5f);
         yield return new WaitForSeconds(1.5f);
@@ -54,11 +58,19 @@ public class MainUI : Singleton<MainUI>
 
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         yield return new WaitForSeconds(1);
-        yield return SceneManager.LoadSceneAsync(SceneToLoad, LoadSceneMode.Single);
+        yield return SceneManager.LoadSceneAsync(Level.Instance.NextScene, LoadSceneMode.Single);
         yield return BlackScreen.Hide(.5f);
     }
 
-    public IEnumerator Pass()
+    public void Pass()
+    {
+        if (!start)
+            return;
+        start = false;
+        StartCoroutine(PassProcess());
+    }
+
+    public IEnumerator PassProcess()
     {
         yield return GamePass.Show(.5f);
         yield return new WaitForSeconds(1.5f);
@@ -67,9 +79,10 @@ public class MainUI : Singleton<MainUI>
         //yield return new WaitForSeconds(.5f);
         yield return GamePass.Hide(.5f);
 
-        yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        //yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         yield return new WaitForSeconds(1);
         yield return SceneManager.LoadSceneAsync(Level.Instance.NextScene, LoadSceneMode.Single);
         yield return WhiteScreen.Hide(.5f);
+        start = true;
     }
 }
