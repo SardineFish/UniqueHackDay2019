@@ -23,8 +23,9 @@ public class GrassItem : MonoBehaviour
     IEnumerator BurnProcess(float startTime)
     {
         var fx = Instantiate(Fire, transform.position, Quaternion.identity);
-        var sprite = GetComponentInChildren<SpriteRenderer>();
-        sprite.enabled = false;
+        var sprites = GetComponentsInChildren<SpriteRenderer>();
+        foreach (var sprite in sprites) sprite.enabled = false;
+
         foreach (var t in Utility.Timer(.5f * BurnTime))
         {
             yield return null;
@@ -34,11 +35,12 @@ public class GrassItem : MonoBehaviour
         foreach (var t in Utility.Timer(.5f * BurnTime))
             yield return null;
         Destroy(fx);
-        while(Time.time < startTime + GrowTime)
+        while (Time.time < startTime + GrowTime)
         {
             yield return null;
         }
-        sprite.enabled = true;
+
+        foreach (var sprite in sprites) sprite.enabled = false;
         collider.enabled = true;
         //GetComponentInChildren<SpriteRenderer>().sprite = NormalGrass;
         burnt = false;
@@ -116,7 +118,7 @@ public class GrassItem : MonoBehaviour
         searched = new List<TypedTile>();
         searched.Add(GetComponent<TypedTile>());
         var i = 0;
-        foreach(var _tile in BFSEnumerable(searched))
+        foreach (var _tile in BFSEnumerable(searched))
         {
             _tile?.GetComponent<GrassItem>()?.Burn(startTime);
             if (i % 2 == 1)
