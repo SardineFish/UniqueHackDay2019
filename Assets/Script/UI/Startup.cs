@@ -2,21 +2,40 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Startup : MonoBehaviour
+namespace UI
 {
-    public string SceneToLoad;
-    // Use this for initialization
-    void Start()
+    public class Startup : MonoBehaviour
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(InputUtils.GetMainKey())
+        public string SceneToLoad;
+        public CoveredUI StartupUI;
+        public CoveredUI Mask;
+        bool start = false;
+        // Use this for initialization
+        void Start()
         {
-            SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Single);
+            DontDestroyOnLoad(gameObject);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (InputUtils.GetMainKey())
+            {
+                if (start)
+                    return;
+                start = true;
+                StartCoroutine(StartProcess());
+            }
+        }
+
+        IEnumerator StartProcess()
+        {
+            yield return Mask.Show(.5f);
+            yield return new WaitForSeconds(.5f);
+            StartupUI.gameObject.SetActive(false);
+            yield return SceneManager.LoadSceneAsync(SceneToLoad, LoadSceneMode.Single);
+            yield return Mask.Hide(.5f);
         }
     }
+
 }
