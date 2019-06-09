@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 public class GrassItem : MonoBehaviour
 {
     public const float BurnTime = 1;
-    public const float GrowTime = 30;
+    public const float GrowTime = 5;
     public const float SpreadInterval = 0.2f;
 
     public GameObject Fire;
@@ -24,7 +23,8 @@ public class GrassItem : MonoBehaviour
     IEnumerator BurnProcess(float startTime)
     {
         var fx = Instantiate(Fire, transform.position, Quaternion.identity);
-        GetComponentInChildren<SpriteRenderer>().sprite = null;
+        var sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite.enabled = false;
         foreach (var t in Utility.Timer(.5f * BurnTime))
         {
             yield return null;
@@ -38,6 +38,7 @@ public class GrassItem : MonoBehaviour
         {
             yield return null;
         }
+        sprite.enabled = true;
         collider.enabled = true;
         //GetComponentInChildren<SpriteRenderer>().sprite = NormalGrass;
         burnt = false;
