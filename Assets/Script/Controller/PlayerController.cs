@@ -24,11 +24,13 @@ public class PlayerController : MonoBehaviour
     public BoxDetect boxDetect;
     public Animator animator;
     public Vector2 Velocity = new Vector2(1, 0);
+    public AudioClip TransportClip;
     [Header("Horizontal")]
     public int XDirection = 1;
     public float XMaxSpeed = 2;
     public float XAcc = 4;
     [Header("Jump")]
+    public AudioClip JumpClip;
     public float BaseGravity = 20;
     public float JumpTMin = 3;
     public float JumpTMax= 4;
@@ -56,6 +58,12 @@ public class PlayerController : MonoBehaviour
         }
         StartCoroutine(state);
         currentState = state;
+    }
+    public void PlaySound(AudioClip clip)
+    {
+        var audioSource = GetComponentInChildren<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.Play();
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -248,6 +256,7 @@ public class PlayerController : MonoBehaviour
     {
         float timeCount = 0;
         Velocity.y = JumpSpeed;
+        PlaySound(JumpClip);
         while(true)
         {
             yield return new WaitForFixedUpdate();
@@ -394,6 +403,7 @@ public class PlayerController : MonoBehaviour
         rigidbody.position = finalPos;
         Velocity.x = xDir * outGrassVelocity.x;
         Velocity.y = outGrassVelocity.y;
+        PlaySound(TransportClip);
         ChangeState(AirState());
         
     }
@@ -408,6 +418,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         rigidbody.position = torch.Opposite.transform.position;
         Velocity = lastVelocity;
+        PlaySound(TransportClip);
         ChangeState(AirState());
     }
     public IEnumerator GamePassTorchState(GamePassTorch gamePassTorch)
