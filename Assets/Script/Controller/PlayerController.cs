@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public BoxDetect boxDetect;
     public Animator animator;
     public Vector2 Velocity = new Vector2(1, 0);
+    public AudioClip TransportClip;
     [Header("Horizontal")]
     public int XDirection = 1;
     public float XMaxSpeed = 2;
@@ -402,6 +403,7 @@ public class PlayerController : MonoBehaviour
         rigidbody.position = finalPos;
         Velocity.x = xDir * outGrassVelocity.x;
         Velocity.y = outGrassVelocity.y;
+        PlaySound(TransportClip);
         ChangeState(AirState());
         
     }
@@ -416,6 +418,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         rigidbody.position = torch.Opposite.transform.position;
         Velocity = lastVelocity;
+        PlaySound(TransportClip);
         ChangeState(AirState());
     }
     public IEnumerator GamePassTorchState(GamePassTorch gamePassTorch)

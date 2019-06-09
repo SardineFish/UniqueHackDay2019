@@ -371,6 +371,7 @@ MonoBehaviour:
   boxDetect: {fileID: 434878386}
   animator: {fileID: 2415536545558224984}
   Velocity: {x: 0.01, y: 0}
+  TransportClip: {fileID: 8300000, guid: ca29fb1656941614cbf05a3c12fd20d0, type: 3}
   XDirection: 1
   XMaxSpeed: 10
   XAcc: 10
