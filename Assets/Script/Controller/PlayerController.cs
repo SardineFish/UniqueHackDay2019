@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
             if(grass != null && !grass.burnt)
             {
                 ChangeState(InGrassState(grass));
+                return;
             }
             var torch = collider.GetComponent<Torch>();
             if(torch != null)
@@ -118,7 +119,13 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     ChangeState(TorchState(torch));
+                    return;
                 }
+            }
+            var gamePassTorch = collider.GetComponent<GamePassTorch>();
+            if(gamePassTorch != null)
+            {
+                ChangeState(GamePassTorchState(gamePassTorch));
             }
         };
         ChangeState(AirState());
@@ -403,4 +410,15 @@ public class PlayerController : MonoBehaviour
         Velocity = lastVelocity;
         ChangeState(AirState());
     }
+    public IEnumerator GamePassTorchState(GamePassTorch gamePassTorch)
+    {
+        StateName = "GamePassTorch";
+        animator.Play(addDirectionSuffix(inGrassAnimationName(gamePassTorch.transform)));
+        Velocity = Vector2.zero;
+        while(true)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+    }
 }
+
