@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 947a901373e558a40be9d915ec71528d
+guid: 70372e05368470a42af4f1c58b8f8ec2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4638560415184715723
-    second: "\u5E73\u53F01_0"
+      213: -8553596595128423742
+    second: Torch_0
   - first:
-      213: 1006814032771365081
-    second: "\u5E73\u53F01_1"
+      213: 330400763883709057
+    second: Torch_1
   - first:
-      213: 1694256002875561507
-    second: "\u5E73\u53F01_2"
-  - first:
-      213: 8310801622269822606
-    second: "\u5E73\u53F01_3"
-  - first:
-      213: 4526884429748925528
-    second: "\u5E73\u53F01_4"
+      213: 6950709768184568528
+    second: Torch_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -56,13 +50,13 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -95,59 +89,39 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u5E73\u53F01_0"
+      name: Torch_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb4f4206d6e86a84abe809a656cf6b77
-      internalID: 4638560415184715723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u5E73\u53F01_1"
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0831cc1e89ed6f4468188b71ddcb2b7f
-      internalID: 1006814032771365081
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u5E73\u53F01_2"
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 80
-        width: 16
-        height: 16
+        y: 27
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68499865edb88a743a639dd707ab752b
-      internalID: 1694256002875561507
+      spriteID: a432a23196260c64b8f3a8d236c0f3e1
+      internalID: -8553596595128423742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u5E73\u53F01_3"
+      name: Torch_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
-        width: 16
-        height: 16
+        x: 25
+        y: 27
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 986f3a05bf84d2846aa132e2d251ca06
-      internalID: 8310801622269822606
+      spriteID: 8b71abc004537f543b70a2736897bd0c
+      internalID: 330400763883709057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u5E73\u53F01_4"
+      name: Torch_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 80
-        width: 16
-        height: 16
+        x: 0
+        y: 0
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c69029e3dbf52a4b8683f0e439bef24
-      internalID: 4526884429748925528
+      spriteID: b469c7cb55fa1914e897ec6ae87e106f
+      internalID: 6950709768184568528
       vertices: []
       indices: 
       edges: []
@@ -206,7 +180,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3355601606bae6645bc0f726c1493332
+    spriteID: d5d3217766f2f414d88e4af3a8e5bf30
     internalID: 0
     vertices: []
     indices: 
