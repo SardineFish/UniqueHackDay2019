@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class GrassItem : MonoBehaviour
 {
     public const float BurnTime = 1;
-    public const float GrowTime = 5;
+    public const float GrowTime = 10;
     public const float SpreadInterval = 0.2f;
 
     public GameObject Fire;

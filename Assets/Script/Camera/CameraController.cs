@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
 
     private readonly float zOffset = -100;
     private Vector2 currentVelocity;
+    private float minY;
 
     private void Start()
     {
@@ -19,6 +20,8 @@ public class CameraController : MonoBehaviour
         {
             var position = Target.position;
             position.z = zOffset;
+            position.x = transform.position.x;
+            minY = transform.position.y;
             transform.position = position;
         }
 
@@ -41,6 +44,8 @@ public class CameraController : MonoBehaviour
         Vector3 position = Vector2.SmoothDamp(currentPosition, targetPosition,
             ref currentVelocity, SmoothTime, MaxSpeed);
         position.z = zOffset;
+        position.x = currentPosition.x;
+        position.y = Mathf.Clamp(position.y, minY, 100000f);
 
         transform.position = position;
     }
