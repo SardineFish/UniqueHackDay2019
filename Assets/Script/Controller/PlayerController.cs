@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     [ReadOnly]
     public string StateName = "Null";
     private Queue<bool> inputBuffer = new Queue<bool>();
+    private int torchSkipEnterTime = 0;
     public void ChangeState(IEnumerator state)
     {
         if(currentState != null)
@@ -105,6 +106,18 @@ public class PlayerController : MonoBehaviour
             if(grass != null && !grass.burnt)
             {
                 ChangeState(InGrassState(grass));
+            }
+            var torch = collider.GetComponent<Torch>();
+            if(torch != null)
+            {
+                if(torchSkipEnterTime > 0)
+                {
+                    torchSkipEnterTime--;
+                }
+                else
+                {
+                    ChangeState(TorchState(torch));
+                }
             }
         };
         ChangeState(AirState());
@@ -338,25 +351,28 @@ public class PlayerController : MonoBehaviour
             XSpeedProcess();
         }
     }
+    private string inGrassAnimationName(Transform trans)
+    {
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.Append("InGrass");
+
+        var dir3 = trans.position - transform.position;
+        var dir = new Vector2(dir3.x, dir3.y);
+
+        bool horizontal = Mathf.Abs(dir.x) < Mathf.Abs(dir.y);
+
+        stringBuilder.Append(horizontal ? "Horizontal" : "Vertical");
+
+        return stringBuilder.ToString();
+    }
     public IEnumerator InGrassState(GrassItem grass)
     {
         StateName = "InGrass";
 
         var rigidbody = GetComponent<Rigidbody2D>();
+        animator.Play(addDirectionSuffix(inGrassAnimationName(grass.transform)));
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.Append("InGrass");
-
-        var dir3 = grass.transform.position - transform.position;
-        var dir = new Vector2(dir3.x, dir3.y);
-
-        bool horizontal = Mathf.Abs(dir.x) > Mathf.Abs(dir.y);
-
-        stringBuilder.Append(horizontal ? "Horizontal" : "Vertical");
-
-        var rendererGo = GetComponentInChildren<SpriteRenderer>().gameObject;
-
-        animator.Play(addDirectionSuffix(stringBuilder.ToString()));
         Velocity = Vector2.zero;
         Vector2 finalPos = Vector2.zero;
         var grassProgress = grass.GrassProcess((pos) => { finalPos = pos; });
@@ -368,10 +384,22 @@ public class PlayerController : MonoBehaviour
         float xDir = Mathf.Sign((finalPos - rigidbody.position).x);
         XDirection = (int)xDir;
         rigidbody.position = finalPos;
-        rendererGo.SetActive(true);
         Velocity.x = xDir * outGrassVelocity.x;
         Velocity.y = outGrassVelocity.y;
         ChangeState(AirState());
         
+    }
+    public IEnumerator TorchState(Torch torch)
+    {
+        StateName = "Torch";
+        torchSkipEnterTime++;
+        animator.Play(addDirectionSuffix(inGrassAnimationName(torch.transform)));
+        var rigidbody = GetComponent<Rigidbody2D>();
+        var lastVelocity = Velocity;
+        Velocity = Vector2.zero;
+        yield return new WaitForSeconds(0.5f);
+        rigidbody.position = torch.Opposite.transform.position;
+        Velocity = lastVelocity;
+        ChangeState(AirState());
     }
 }
