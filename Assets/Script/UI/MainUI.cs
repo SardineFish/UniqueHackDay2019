@@ -6,7 +6,6 @@ using UI;
 public class MainUI : Singleton<MainUI>
 {
     public string SceneToLoad;
-    public string Credit;
     public CoveredUI StartupUI;
     public CoveredUI BlackScreen;
     public CoveredUI WhiteScreen;
@@ -38,8 +37,8 @@ public class MainUI : Singleton<MainUI>
         StartupUI.gameObject.SetActive(false);
         yield return SceneManager.LoadSceneAsync(SceneToLoad, LoadSceneMode.Single);
         yield return BlackScreen.Hide(.5f);
-        yield return new WaitForSeconds(2);
-        yield return Fail();
+        //yield return new WaitForSeconds(2);
+        //yield return Fail();
         yield return new WaitForSeconds(4);
         yield return Pass();
     }
@@ -70,7 +69,7 @@ public class MainUI : Singleton<MainUI>
 
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         yield return new WaitForSeconds(1);
-        yield return SceneManager.LoadSceneAsync(Credit, LoadSceneMode.Single);
+        yield return SceneManager.LoadSceneAsync(Level.Instance.NextScene, LoadSceneMode.Single);
         yield return WhiteScreen.Hide(.5f);
     }
 }
