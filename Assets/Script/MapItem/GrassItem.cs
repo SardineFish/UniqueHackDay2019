@@ -25,15 +25,20 @@ public class GrassItem : MonoBehaviour
     {
         var fx = Instantiate(Fire, transform.position, Quaternion.identity);
         GetComponentInChildren<SpriteRenderer>().sprite = null;
-        foreach (var t in Utility.Timer(BurnTime))
+        foreach (var t in Utility.Timer(.5f * BurnTime))
         {
             yield return null;
         }
+        var collider = GetComponent<Collider2D>();
+        collider.enabled = false;
+        foreach (var t in Utility.Timer(.5f * BurnTime))
+            yield return null;
         Destroy(fx);
         while(Time.time < startTime + GrowTime)
         {
             yield return null;
         }
+        collider.enabled = true;
         //GetComponentInChildren<SpriteRenderer>().sprite = NormalGrass;
         burnt = false;
     }
