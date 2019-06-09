@@ -7828,14 +7828,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361180459}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -10.97, y: 7.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1587956823}
   m_Father: {fileID: 706476172}
   m_RootOrder: 50
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &361180461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7848,7 +7848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -8127,14 +8127,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365771331}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -23.97, y: 0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 341862123}
   m_Father: {fileID: 706476172}
   m_RootOrder: 43
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &365771333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8147,7 +8147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -14186,14 +14186,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609905131}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -10.97, y: 2.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1332945173}
   m_Father: {fileID: 706476172}
   m_RootOrder: 45
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &609905133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14206,7 +14206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -16445,14 +16445,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724723421}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -23.97, y: -2.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1895736044}
   m_Father: {fileID: 706476172}
   m_RootOrder: 40
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &724723423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16465,7 +16465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -18519,14 +18519,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854707735}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -10.97, y: 3.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 455591150}
   m_Father: {fileID: 706476172}
   m_RootOrder: 46
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &854707737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18539,7 +18539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -19727,14 +19727,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932668385}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -23.97, y: -1.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1379926821}
   m_Father: {fileID: 706476172}
   m_RootOrder: 41
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &932668387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19747,7 +19747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -23990,14 +23990,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184681067}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -23.97, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 298738951}
   m_Father: {fileID: 706476172}
   m_RootOrder: 42
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1184681069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24010,7 +24010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -24848,14 +24848,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243237507}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -10.97, y: 5.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1917430555}
   m_Father: {fileID: 706476172}
   m_RootOrder: 48
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1243237509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24868,7 +24868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -28886,14 +28886,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459743736}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -10.97, y: 4.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 671734158}
   m_Father: {fileID: 706476172}
   m_RootOrder: 47
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1459743738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28906,7 +28906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -31109,14 +31109,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597890235}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -10.97, y: 6.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1492949360}
   m_Father: {fileID: 706476172}
   m_RootOrder: 49
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1597890237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31129,7 +31129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
@@ -42124,14 +42124,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142412972}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -23.97, y: 1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 754919129}
   m_Father: {fileID: 706476172}
   m_RootOrder: 44
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &2142412974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42144,7 +42144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1b125d6e4905142b4a001565cf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire: {fileID: 4537635924532855905, guid: 5ad25ace0f176e8418a8d01998090b02, type: 3}
+  Fire: {fileID: 3615607954530563643, guid: 457120b660484774eadbb368a607ca23, type: 3}
   BurntGrass: {fileID: 21300000, guid: 0973524782649cb418e00a7e83aa75eb, type: 3}
   NormalGrass: {fileID: 21300000, guid: 5190675b2523a0542a2bf6f57b06265e, type: 3}
   burnt: 0
