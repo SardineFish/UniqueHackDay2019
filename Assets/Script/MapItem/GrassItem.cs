@@ -23,7 +23,8 @@ public class GrassItem : MonoBehaviour
     IEnumerator BurnProcess(float startTime)
     {
         var fx = Instantiate(Fire, transform.position, Quaternion.identity);
-        GetComponentInChildren<SpriteRenderer>().sprite = null;
+        var sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite.enabled = false;
         foreach (var t in Utility.Timer(.5f * BurnTime))
         {
             yield return null;
@@ -37,6 +38,7 @@ public class GrassItem : MonoBehaviour
         {
             yield return null;
         }
+        sprite.enabled = true;
         collider.enabled = true;
         //GetComponentInChildren<SpriteRenderer>().sprite = NormalGrass;
         burnt = false;
