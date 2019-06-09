@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public float XMaxSpeed = 2;
     public float XAcc = 4;
     [Header("Jump")]
+    public AudioClip JumpClip;
     public float BaseGravity = 20;
     public float JumpTMin = 3;
     public float JumpTMax= 4;
@@ -56,6 +57,12 @@ public class PlayerController : MonoBehaviour
         }
         StartCoroutine(state);
         currentState = state;
+    }
+    public void PlaySound(AudioClip clip)
+    {
+        var audioSource = GetComponentInChildren<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.Play();
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -248,6 +255,7 @@ public class PlayerController : MonoBehaviour
     {
         float timeCount = 0;
         Velocity.y = JumpSpeed;
+        PlaySound(JumpClip);
         while(true)
         {
             yield return new WaitForFixedUpdate();
