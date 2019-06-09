@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
             }
         };
         TriggerEnterEvent += (Collider2D collider) => {
+            collider.GetComponent<MapItem>()?.OnPlayerTouch();
             var grass = collider.GetComponent<GrassItem>();
             if(grass != null && !grass.burnt)
             {
