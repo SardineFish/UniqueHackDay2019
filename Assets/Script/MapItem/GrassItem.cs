@@ -40,7 +40,7 @@ public class GrassItem : MonoBehaviour
             yield return null;
         }
 
-        foreach (var sprite in sprites) sprite.enabled = false;
+        foreach (var sprite in sprites) sprite.enabled = true;
         collider.enabled = true;
         //GetComponentInChildren<SpriteRenderer>().sprite = NormalGrass;
         burnt = false;
