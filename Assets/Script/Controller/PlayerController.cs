@@ -89,6 +89,11 @@ public class PlayerController : MonoBehaviour
             foreach(var contact in collision.contacts)
             {
                 Debug.DrawLine(contact.point, contact.point + contact.normal, Color.red);
+                if(StateName == "Ground" &&  FootY - contact.point.y >= -0.01f && Mathf.Approximately(contact.normal.y, 0))
+                {
+                    rigidbody.position += Vector2.up * (FootY - contact.point.y + 0.01f);
+                    break;
+                }
             }
         };
         TriggerEnterEvent += (Collider2D collider) => {
