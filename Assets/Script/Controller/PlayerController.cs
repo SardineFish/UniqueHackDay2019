@@ -323,15 +323,31 @@ public class PlayerController : MonoBehaviour
 
         var rigidbody = GetComponent<Rigidbody2D>();
 
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.Append("InGrass");
+
+        var dir3 = grass.transform.position - transform.position;
+        var dir = new Vector2(dir3.x, dir3.y);
+
+        bool horizontal = Mathf.Abs(dir.x) > Mathf.Abs(dir.y);
+
+        stringBuilder.Append(horizontal ? "Horizontal" : "Vertical");
+
+        var rendererGo = GetComponentInChildren<SpriteRenderer>().gameObject;
+
+        animator.Play(addDirectionSuffix(stringBuilder.ToString()));
         Velocity = Vector2.zero;
         Vector2 finalPos = Vector2.zero;
         var grassProgress = grass.GrassProcess((pos) => { finalPos = pos; });
         StartCoroutine(grassProgress);
         yield return grassProgress;
 
+        finalPos += Vector2.up;
+
         float xDir = Mathf.Sign((finalPos - rigidbody.position).x);
         XDirection = (int)xDir;
         rigidbody.position = finalPos;
+        rendererGo.SetActive(true);
         Velocity.x = xDir * outGrassVelocity.x;
         Velocity.y = outGrassVelocity.y;
         ChangeState(AirState());

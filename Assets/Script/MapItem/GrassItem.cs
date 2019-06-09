@@ -7,7 +7,7 @@ public class GrassItem : MonoBehaviour
 {
     public const float BurnTime = 1;
     public const float GrowTime = 30;
-    public const float SpreadInterval = 0.1f;
+    public const float SpreadInterval = 0.2f;
 
     public GameObject Fire;
     public Sprite BurntGrass;
