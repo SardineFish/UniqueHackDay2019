@@ -11,6 +11,10 @@ public static class InputUtils
     {
         return Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space);
     }
+    public static bool GetMainKeyDown()
+    {
+        return Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space);
+    }
 }
 
 
@@ -35,7 +39,6 @@ public class PlayerController : MonoBehaviour
     [Header("StickOnWall")]
     public float StickOnWallGravity = 30;
     public float StickOnWallMaxSpeed = 10;
-    private bool lastMainKey = false;
     [Header("Grass")]
     public Vector2 outGrassVelocity = new Vector2(7, 10);
     private IEnumerator JumpState;
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator currentState = null;
     [ReadOnly]
     public string StateName = "Null";
+    private Queue<bool> inputBuffer = new Queue<bool>();
     public void ChangeState(IEnumerator state)
     {
         if(currentState != null)
@@ -89,6 +93,11 @@ public class PlayerController : MonoBehaviour
             foreach(var contact in collision.contacts)
             {
                 Debug.DrawLine(contact.point, contact.point + contact.normal, Color.red);
+                if(StateName == "Ground" &&  FootY - contact.point.y >= -0.01f && Mathf.Approximately(contact.normal.y, 0))
+                {
+                    rigidbody.position += Vector2.up * (FootY - contact.point.y + 0.01f);
+                    break;
+                }
             }
         };
         TriggerEnterEvent += (Collider2D collider) => {
@@ -161,6 +170,26 @@ public class PlayerController : MonoBehaviour
     }
     public void Update()
     {
+        if(InputUtils.GetMainKeyDown())
+        {
+            Debug.Log("KeyDown");
+        }
+        inputBuffer.Enqueue(InputUtils.GetMainKeyDown());
+        while(inputBuffer.Count > 5)
+        {
+            inputBuffer.Dequeue();
+        }
+    }
+    public bool RecentlyMainKeyDown()
+    {
+        foreach(bool down in inputBuffer)
+        {
+            if(down)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     private string addDirectionSuffix(string prefix)
     {
@@ -243,12 +272,10 @@ public class PlayerController : MonoBehaviour
         StateName = "Ground";
         while(true)
         {
-            if(!lastMainKey && InputUtils.GetMainKey())
+            if(RecentlyMainKeyDown())
             {
-                lastMainKey = true;
                 StartJump();
             }
-            lastMainKey = InputUtils.GetMainKey();
             if(Velocity.y < 0)
             {
                 Velocity.y = 0;
@@ -278,15 +305,13 @@ public class PlayerController : MonoBehaviour
             Velocity.y -= StickOnWallGravity * Time.fixedDeltaTime;
             Velocity.y = Mathf.Max(-StickOnWallMaxSpeed, Velocity.y);
             
-            if(!lastMainKey && InputUtils.GetMainKey())
+            if(RecentlyMainKeyDown())
             {
-                lastMainKey = true;
                 XDirection = -XDirection;
                 Velocity.x = XDirection * XMaxSpeed;
                 StartJump();
                 yield break;
             }
-            lastMainKey = InputUtils.GetMainKey();
             
             yield return new WaitForFixedUpdate();
         }
