@@ -71,6 +71,6 @@ public class MainUI : Singleton<MainUI>
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         yield return new WaitForSeconds(1);
         yield return SceneManager.LoadSceneAsync(Credit, LoadSceneMode.Single);
-        yield return BlackScreen.Hide(.5f);
+        yield return WhiteScreen.Hide(.5f);
     }
 }

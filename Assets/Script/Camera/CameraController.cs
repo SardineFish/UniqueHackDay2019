@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
         {
             var position = Target.position;
             position.z = zOffset;
+            position.x = transform.position.x;
             transform.position = position;
         }
 
@@ -41,6 +42,7 @@ public class CameraController : MonoBehaviour
         Vector3 position = Vector2.SmoothDamp(currentPosition, targetPosition,
             ref currentVelocity, SmoothTime, MaxSpeed);
         position.z = zOffset;
+        position.x = currentPosition.x;
 
         transform.position = position;
     }
