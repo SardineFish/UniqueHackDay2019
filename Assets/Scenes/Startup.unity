@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToLoad: Scenes/MapDev
+  Credit: Scenes/Credit
   StartupUI: {fileID: 182654257}
   BlackScreen: {fileID: 1165684605}
   WhiteScreen: {fileID: 1177942744}
